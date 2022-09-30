@@ -58,7 +58,7 @@
 
 #define R2D9SkiaSvgDataColorSpace_sRGB 1
 
-#define R2D9SkiaSvgDataColorType_RGB_8888 1
+#define R2D9SkiaSvgDataColorType_RGBA_8888 1
 #define R2D9SkiaSvgDataColorType_RGB_888 2
 
 struct R2D9SkiaSvgData {

@@ -85,7 +85,7 @@ int R2D9SkiaSvgDataProcess(struct R2D9SkiaSvgData * data) {
     SkColorType colorType;
     SkAlphaType alphaType;
     switch (data->colorType) {
-        case R2D9SkiaSvgDataColorType_RGB_8888:
+        case R2D9SkiaSvgDataColorType_RGBA_8888:
             colorType = kRGBA_8888_SkColorType;
             alphaType = kPremul_SkAlphaType;
             break;

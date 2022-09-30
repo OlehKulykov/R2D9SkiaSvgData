@@ -112,7 +112,7 @@ void test2(void) {
         struct R2D9SkiaSvgData data = { 0 };
         //data.pixelsDataAlloc = r2d9_pixels_data_alloc;
         data.colorSpace = R2D9SkiaSvgDataColorSpace_sRGB;
-        data.colorType = R2D9SkiaSvgDataColorType_RGB_8888;
+        data.colorType = R2D9SkiaSvgDataColorType_RGBA_8888;
         //data.colorType = R2D9SkiaSvgDataColorType_RGB_888;
         data.scaleToWidth = 2048;
         data.scaleToHeight = 2778;
@@ -156,7 +156,7 @@ void test2(void) {
         png_color_8 sigBit = { 0 };
         int bitDepth = 8;
         switch (data.colorType) {
-            case R2D9SkiaSvgDataColorType_RGB_8888:
+            case R2D9SkiaSvgDataColorType_RGBA_8888:
                 sigBit.red = sigBit.green = sigBit.blue = sigBit.alpha = 8;
                 pngColorType = PNG_COLOR_TYPE_RGB_ALPHA;
                 fPngBytesPerPixel = 4;
