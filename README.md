@@ -1,8 +1,12 @@
 # R2D9SkiaSvgData
 Render SVG file to RGB(A) buffer using skia library.
 
-Info: Skia library contains module 'svg', but the 'svg' module classes are not exportable.
+#### Info: 
+Skia library contains module 'svg', but the 'svg' module classes are not exportable.
 So, we'll use reverse method: inject exportable function via this header & source files and use non-exportable 'svg' code with rest rendering code. 
+
+#### Note:
+It's recommended to use it as a static lib. Plus, for macOS & iOS users, there are compiled frameworks, attached for a latest release.
 
 ### Copy:
 - skia/modules/svg/include/r2d9_skia_svg_data.h
