@@ -25,7 +25,7 @@ Mac and desktop Linux supports only "x64". On desktop Linux you might also theor
 Chrome OS supports "x86" and "x64", but to build a 32-bit binary you will need to use a sysroot on a 64-bit machine.
 If you specify an Android build (see below) the default CPU architecture will be "arm". You could try overriding it to "arm64", "x86", "mipsel", or "mips64el" but the GN builds for these aren't regularly tested.
 target_os
-    - "android"
+  - "android"
   - "chromeos"
   - "ios"
   - "linux"
