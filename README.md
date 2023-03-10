@@ -1,7 +1,7 @@
 # R2D9SkiaSvgData
 Render SVG file to RGB(A) buffer using skia library.
 
-Skia branch: chrome/m110
+Skia branch: _chrome/m112_
 
 #### Info: 
 Skia library contains module 'svg', but the 'svg' module classes are not exportable.
@@ -44,9 +44,9 @@ bin/gn gen out/static_mac_arm64 --args='is_debug=false is_official_build=true pa
 ninja -C out/static_mac_arm64
 ```
 ```bash
-libtool -static out/static_mac_x64/libparticles.a out/static_mac_x64/libpathkit.a out/static_mac_x64/libskia.a out/static_mac_x64/libskresources.a out/static_mac_x64/libskshaper.a out/static_mac_x64/libsvg.a out/static_mac_x64/libwuffs.a -o out/libskia_mac_x64.a
+libtool -static out/static_mac_x64/libpathkit.a out/static_mac_x64/libskcms.a out/static_mac_x64/libskia.a out/static_mac_x64/libskresources.a out/static_mac_x64/libsvg.a out/static_mac_x64/libwuffs.a -o out/libskia_mac_x64.a
 
-libtool -static out/static_mac_arm64/libparticles.a out/static_mac_arm64/libpathkit.a out/static_mac_arm64/libskia.a out/static_mac_arm64/libskresources.a out/static_mac_arm64/libskshaper.a out/static_mac_arm64/libsvg.a out/static_mac_arm64/libwuffs.a -o out/libskia_mac_arm64.a
+libtool -static out/static_mac_arm64/libpathkit.a out/static_mac_arm64/libskcms.a out/static_mac_arm64/libskia.a out/static_mac_arm64/libskresources.a out/static_mac_arm64/libsvg.a out/static_mac_arm64/libwuffs.a -o out/libskia_mac_arm64.a
 
 lipo -create out/libskia_mac_x64.a out/libskia_mac_arm64.a -o out/libskia_mac.a 
 
@@ -76,11 +76,11 @@ bin/gn gen out/static_ios_armv7 --args='is_debug=false is_official_build=true pa
 ninja -C out/static_ios_armv7
 ```
 ```bash
-libtool -static out/static_ios_x64/libparticles.a out/static_ios_x64/libpathkit.a out/static_ios_x64/libskia.a out/static_ios_x64/libskresources.a out/static_ios_x64/libskshaper.a out/static_ios_x64/libsvg.a out/static_ios_x64/libwuffs.a -o out/libskia_ios_x64.a
+libtool -static out/static_ios_x64/libpathkit.a out/static_ios_x64/libskcms.a out/static_ios_x64/libskia.a out/static_ios_x64/libskresources.a out/static_ios_x64/libsvg.a out/static_ios_x64/libwuffs.a -o out/libskia_ios_x64.a
 
-libtool -static out/static_ios_arm64/libparticles.a out/static_ios_arm64/libpathkit.a out/static_ios_arm64/libskia.a out/static_ios_arm64/libskresources.a out/static_ios_arm64/libskshaper.a out/static_ios_arm64/libsvg.a out/static_ios_arm64/libwuffs.a -o out/libskia_ios_arm64.a
+libtool -static out/static_ios_arm64/libpathkit.a out/static_ios_arm64/libskcms.a out/static_ios_arm64/libskia.a out/static_ios_arm64/libskresources.a out/static_ios_arm64/libsvg.a out/static_ios_arm64/libwuffs.a -o out/libskia_ios_arm64.a
 
-libtool -static out/static_ios_armv7/libparticles.a out/static_ios_armv7/libpathkit.a out/static_ios_armv7/libskia.a out/static_ios_armv7/libskresources.a out/static_ios_armv7/libskshaper.a out/static_ios_armv7/libsvg.a out/static_ios_armv7/libwuffs.a -o out/libskia_ios_armv7.a
+libtool -static out/static_ios_armv7/libpathkit.a out/static_ios_armv7/libskcms.a out/static_ios_armv7/libskia.a out/static_ios_armv7/libskresources.a out/static_ios_armv7/libsvg.a out/static_ios_armv7/libwuffs.a -o out/libskia_ios_armv7.a
 
 lipo -create out/libskia_ios_x64.a out/libskia_ios_arm64.a out/libskia_ios_armv7.a -o out/libskia_ios.a 
 
