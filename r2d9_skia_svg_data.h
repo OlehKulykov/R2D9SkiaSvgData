@@ -62,11 +62,11 @@
 #define R2D9SkiaSvgDataColorType_RGB_888 2
 
 struct R2D9SkiaSvgData {
-    void * context;                 // in
-    void * svgData;                 // in
+    void * context;                 // in, optional, any user defined, 'pixelsDataAlloc(..., context)'
+    void * svgData;                 // in, required, SVG file
     void * pixelsData;              // out
     void * (*pixelsDataAlloc)(unsigned int size, void * context); // in, optional, malloc/free instead
-    unsigned int svgDataSize;       // in
+    unsigned int svgDataSize;       // in, required, size of 'svgData' in bytes
     unsigned int pixelsWidth;       // out
     unsigned int pixelsHeight;      // out
     unsigned int pixelsDataSize;    // out
@@ -76,8 +76,8 @@ struct R2D9SkiaSvgData {
     float scaleToHeight;            // in, scale method #1, optional, > 0
     float scaleWidth;               // in, scale method #2, optional, > 0, svgWidth * scaleWidth
     float scaleHeight;              // in, scale method #2, optional, > 0, svgHeight * scaleHeight
-    unsigned char colorSpace;       // in, R2D9SkiaSvgDataColorSpace_xxxxx
-    unsigned char colorType;        // in, out, R2D9SkiaSvgDataColorType_xxxxx
+    unsigned char colorSpace;       // in, required, R2D9SkiaSvgDataColorSpace_xxxxx
+    unsigned char colorType;        // in, out, required, R2D9SkiaSvgDataColorType_xxxxx
 };
 
 R2D9_C_API(int) R2D9SkiaSvgDataProcess(struct R2D9SkiaSvgData * data);
