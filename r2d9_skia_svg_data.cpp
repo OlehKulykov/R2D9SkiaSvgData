@@ -122,7 +122,11 @@ int R2D9SkiaSvgDataProcess(struct R2D9SkiaSvgData * data) {
         if (byteSize > UINT_MAX) {
             return __LINE__;
         }
-        data->pixelsData = data->pixelsDataAlloc ? data->pixelsDataAlloc(static_cast<unsigned int>(byteSize), data->context) : malloc(byteSize);
+        if (data->pixelsDataAlloc) {
+            data->pixelsData = data->pixelsDataAlloc(static_cast<unsigned int>(byteSize), data->context);
+        } else {
+            data->pixelsData = ::malloc(byteSize);
+        }
         if (!data->pixelsData) {
             return __LINE__;
         }
@@ -140,12 +144,16 @@ int R2D9SkiaSvgDataProcess(struct R2D9SkiaSvgData * data) {
         if (byteSize > UINT_MAX) {
             return __LINE__;
         }
-        data->pixelsData = data->pixelsDataAlloc ? data->pixelsDataAlloc(static_cast<unsigned int>(byteSize), data->context) : malloc(byteSize);
+        if (data->pixelsDataAlloc) {
+            data->pixelsData = data->pixelsDataAlloc(static_cast<unsigned int>(byteSize), data->context);
+        } else {
+            data->pixelsData = ::malloc(byteSize);
+        }
         if (!data->pixelsData) {
             return __LINE__;
         }
         data->pixelsDataSize = static_cast<unsigned int>(byteSize);
-        memcpy(data->pixelsData, pixmap.addr(), byteSize);
+        ::memcpy(data->pixelsData, pixmap.addr(), byteSize);
     }
     
     return 0;

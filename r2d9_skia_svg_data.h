@@ -65,7 +65,7 @@ struct R2D9SkiaSvgData {
     void * context;                 // in, optional, any user defined, 'pixelsDataAlloc(..., context)'
     void * svgData;                 // in, required, SVG file
     void * pixelsData;              // out
-    void * (*pixelsDataAlloc)(unsigned int size, void * context); // in, optional, malloc/free instead
+    void * (*pixelsDataAlloc)(unsigned int size, void * context); // in, optional, ::malloc(...)/::free(...) instead
     unsigned int svgDataSize;       // in, required, size of 'svgData' in bytes
     unsigned int pixelsWidth;       // out
     unsigned int pixelsHeight;      // out
