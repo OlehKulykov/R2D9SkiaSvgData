@@ -96,7 +96,7 @@ int R2D9SkiaSvgDataProcess(struct R2D9SkiaSvgData * data) {
         default:
             return __LINE__;
     }
-    const auto surface = SkSurface::MakeRaster(SkImageInfo::Make(size.width(), size.height(), colorType, alphaType, colorSpace));
+    const auto surface = SkSurfaces::Raster(SkImageInfo::Make(size.width(), size.height(), colorType, alphaType, colorSpace));
     auto * canvas = surface ? surface->getCanvas() : nullptr;
     if (!canvas) {
         return __LINE__;
