@@ -1,7 +1,7 @@
 # R2D9SkiaSvgData
 Render SVG file to RGB(A) buffer using skia library.
 
-Skia branch: chrome/m117
+Skia branch: chrome/m118
 
 #### Info: 
 Skia library contains module 'svg', but the 'svg' module classes are not exportable.
