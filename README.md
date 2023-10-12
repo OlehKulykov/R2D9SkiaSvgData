@@ -66,9 +66,13 @@ cp out/libskia_mac.a out/r2d9_macos_skia_svg.framework/r2d9_macos_skia_svg
 
 #### iOS
 ```bash
-bin/gn gen out/static_ios_x64 --args='is_debug=false is_official_build=true paragraph_bench_enabled=false paragraph_gms_enabled=false paragraph_tests_enabled=false skia_canvaskit_enable_alias_font=false skia_canvaskit_enable_canvas_bindings=false skia_canvaskit_enable_debugger=false skia_canvaskit_enable_effects_deserialization=false skia_canvaskit_enable_embedded_font=false skia_canvaskit_enable_font=false skia_canvaskit_enable_matrix_helper=false skia_canvaskit_enable_paragraph=false skia_canvaskit_enable_pathops=false skia_canvaskit_enable_rt_shader=false skia_canvaskit_enable_skottie=false skia_canvaskit_enable_skp_serialization=true skia_canvaskit_enable_sksl_trace=false skia_enable_discrete_gpu=false skia_enable_gpu=false skia_enable_pdf=false skia_enable_skottie=false skia_enable_skparagraph=false skia_enable_sktext=false skia_enable_svg=true skia_pdf_subset_harfbuzz=false skia_use_dng_sdk=false skia_use_fonthost_mac=false skia_use_gl=false skia_use_harfbuzz=false skia_use_icu=false skia_use_libjpeg_turbo_decode=false skia_use_libjpeg_turbo_encode=false skia_use_no_jpeg_encode=true skia_use_no_png_encode=true skia_use_libpng_decode=false skia_use_libpng_encode=false skia_use_libwebp_decode=false skia_use_no_webp_encode=true skia_use_libwebp_encode=false skia_use_zlib=false text_tests_enabled=false skia_compile_sksl_tests=false paragraph_tests_enabled=false text_gms_enabled=false skia_use_system_expat=true target_os="ios" target_cpu="x64" xcode_sysroot="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk"'
+bin/gn gen out/static_ios_x64_sim --args='is_debug=false ios_use_simulator=true is_official_build=true paragraph_bench_enabled=false paragraph_gms_enabled=false paragraph_tests_enabled=false skia_canvaskit_enable_alias_font=false skia_canvaskit_enable_canvas_bindings=false skia_canvaskit_enable_debugger=false skia_canvaskit_enable_effects_deserialization=false skia_canvaskit_enable_embedded_font=false skia_canvaskit_enable_font=false skia_canvaskit_enable_matrix_helper=false skia_canvaskit_enable_paragraph=false skia_canvaskit_enable_pathops=false skia_canvaskit_enable_rt_shader=false skia_canvaskit_enable_skottie=false skia_canvaskit_enable_skp_serialization=true skia_canvaskit_enable_sksl_trace=false skia_enable_discrete_gpu=false skia_enable_gpu=false skia_enable_pdf=false skia_enable_skottie=false skia_enable_skparagraph=false skia_enable_sktext=false skia_enable_svg=true skia_pdf_subset_harfbuzz=false skia_use_dng_sdk=false skia_use_fonthost_mac=false skia_use_gl=false skia_use_harfbuzz=false skia_use_icu=false skia_use_libjpeg_turbo_decode=false skia_use_libjpeg_turbo_encode=false skia_use_no_jpeg_encode=true skia_use_no_png_encode=true skia_use_libpng_decode=false skia_use_libpng_encode=false skia_use_libwebp_decode=false skia_use_no_webp_encode=true skia_use_libwebp_encode=false skia_use_zlib=false text_tests_enabled=false skia_compile_sksl_tests=false paragraph_tests_enabled=false text_gms_enabled=false skia_use_system_expat=true target_os="ios" target_cpu="x64" xcode_sysroot="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk"'
 
-ninja -C out/static_ios_x64
+ninja -C out/static_ios_x64_sim
+
+bin/gn gen out/static_ios_arm64_sim --args='is_debug=false ios_use_simulator=true is_official_build=true paragraph_bench_enabled=false paragraph_gms_enabled=false paragraph_tests_enabled=false skia_canvaskit_enable_alias_font=false skia_canvaskit_enable_canvas_bindings=false skia_canvaskit_enable_debugger=false skia_canvaskit_enable_effects_deserialization=false skia_canvaskit_enable_embedded_font=false skia_canvaskit_enable_font=false skia_canvaskit_enable_matrix_helper=false skia_canvaskit_enable_paragraph=false skia_canvaskit_enable_pathops=false skia_canvaskit_enable_rt_shader=false skia_canvaskit_enable_skottie=false skia_canvaskit_enable_skp_serialization=true skia_canvaskit_enable_sksl_trace=false skia_enable_discrete_gpu=false skia_enable_gpu=false skia_enable_pdf=false skia_enable_skottie=false skia_enable_skparagraph=false skia_enable_sktext=false skia_enable_svg=true skia_pdf_subset_harfbuzz=false skia_use_dng_sdk=false skia_use_fonthost_mac=false skia_use_gl=false skia_use_harfbuzz=false skia_use_icu=false skia_use_libjpeg_turbo_decode=false skia_use_libjpeg_turbo_encode=false skia_use_no_jpeg_encode=true skia_use_no_png_encode=true skia_use_libpng_decode=false skia_use_libpng_encode=false skia_use_libwebp_decode=false skia_use_no_webp_encode=true skia_use_libwebp_encode=false skia_use_zlib=false text_tests_enabled=false skia_compile_sksl_tests=false paragraph_tests_enabled=false text_gms_enabled=false skia_use_system_expat=true target_os="ios" target_cpu="arm64" xcode_sysroot="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk"'
+
+ninja -C out/static_ios_arm64_sim
 
 bin/gn gen out/static_ios_arm64 --args='is_debug=false is_official_build=true paragraph_bench_enabled=false paragraph_gms_enabled=false paragraph_tests_enabled=false skia_canvaskit_enable_alias_font=false skia_canvaskit_enable_canvas_bindings=false skia_canvaskit_enable_debugger=false skia_canvaskit_enable_effects_deserialization=false skia_canvaskit_enable_embedded_font=false skia_canvaskit_enable_font=false skia_canvaskit_enable_matrix_helper=false skia_canvaskit_enable_paragraph=false skia_canvaskit_enable_pathops=false skia_canvaskit_enable_rt_shader=false skia_canvaskit_enable_skottie=false skia_canvaskit_enable_skp_serialization=true skia_canvaskit_enable_sksl_trace=false skia_enable_discrete_gpu=false skia_enable_gpu=false skia_enable_pdf=false skia_enable_skottie=false skia_enable_skparagraph=false skia_enable_sktext=false skia_enable_svg=true skia_pdf_subset_harfbuzz=false skia_use_dng_sdk=false skia_use_fonthost_mac=false skia_use_gl=false skia_use_harfbuzz=false skia_use_icu=false skia_use_libjpeg_turbo_decode=false skia_use_libjpeg_turbo_encode=false skia_use_no_jpeg_encode=true skia_use_no_png_encode=true skia_use_libpng_decode=false skia_use_libpng_encode=false skia_use_libwebp_decode=false skia_use_no_webp_encode=true skia_use_libwebp_encode=false skia_use_zlib=false text_tests_enabled=false skia_compile_sksl_tests=false paragraph_tests_enabled=false text_gms_enabled=false skia_use_system_expat=true target_os="ios" target_cpu="arm64" xcode_sysroot="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk"'
 
@@ -79,24 +83,36 @@ bin/gn gen out/static_ios_armv7 --args='is_debug=false is_official_build=true pa
 ninja -C out/static_ios_armv7
 ```
 ```bash
-libtool -static out/static_ios_x64/libpathkit.a out/static_ios_x64/libskcms.a out/static_ios_x64/libskia.a out/static_ios_x64/libskresources.a out/static_ios_x64/libskshaper.a out/static_ios_x64/libsvg.a out/static_ios_x64/libwuffs.a -o out/libskia_ios_x64.a
+libtool -static out/static_ios_x64_sim/libpathkit.a out/static_ios_x64_sim/libskcms.a out/static_ios_x64_sim/libskia.a out/static_ios_x64_sim/libskresources.a out/static_ios_x64_sim/libskshaper.a out/static_ios_x64_sim/libsvg.a out/static_ios_x64_sim/libwuffs.a -o out/libskia_ios_x64_sim.a
+
+libtool -static out/static_ios_arm64_sim/libpathkit.a out/static_ios_arm64_sim/libskcms.a out/static_ios_arm64_sim/libskia.a out/static_ios_arm64_sim/libskresources.a out/static_ios_arm64_sim/libskshaper.a out/static_ios_arm64_sim/libsvg.a out/static_ios_arm64_sim/libwuffs.a -o out/libskia_ios_arm64_sim.a
 
 libtool -static out/static_ios_arm64/libpathkit.a out/static_ios_arm64/libskcms.a out/static_ios_arm64/libskia.a out/static_ios_arm64/libskresources.a out/static_ios_arm64/libskshaper.a out/static_ios_arm64/libsvg.a out/static_ios_arm64/libwuffs.a -o out/libskia_ios_arm64.a
 
 libtool -static out/static_ios_armv7/libpathkit.a out/static_ios_armv7/libskcms.a out/static_ios_armv7/libskia.a out/static_ios_armv7/libskresources.a out/static_ios_armv7/libskshaper.a out/static_ios_armv7/libsvg.a out/static_ios_armv7/libwuffs.a -o out/libskia_ios_armv7.a
 
-lipo -create out/libskia_ios_x64.a out/libskia_ios_arm64.a out/libskia_ios_armv7.a -o out/libskia_ios.a 
+lipo -create out/libskia_ios_x64_sim.a out/libskia_ios_arm64_sim.a -o out/libskia_ios_sim.a
+ 
+lipo -create out/libskia_ios_arm64.a out/libskia_ios_armv7.a -o out/libskia_ios.a
+
+lipo -info out/libskia_ios_sim.a
 
 lipo -info out/libskia_ios.a
 ```
 
 ##### Architectures in the fat file: out/libskia_ios.a are: armv7 x86_64 arm64 arm64e 
 ```bash
+mkdir -p out/r2d9_ios_skia_svg_sim.framework/Headers
+
 mkdir -p out/r2d9_ios_skia_svg.framework/Headers
+
+cp modules/svg/include/r2d9_skia_svg_data.h out/r2d9_ios_skia_svg_sim.framework/Headers/r2d9_skia_svg_data.h
 
 cp modules/svg/include/r2d9_skia_svg_data.h out/r2d9_ios_skia_svg.framework/Headers/r2d9_skia_svg_data.h
 
-cp out/libskia_ios.a out/r2d9_ios_skia_svg.framework/r2d9_ios_skia_svg 
+cp out/libskia_ios_sim.a out/r2d9_ios_skia_svg_sim.framework/r2d9_ios_skia_svg_sim
+
+cp out/libskia_ios.a out/r2d9_ios_skia_svg.framework/r2d9_ios_skia_svg
 ```
 
 #### Example:
