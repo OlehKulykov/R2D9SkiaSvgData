@@ -8,7 +8,7 @@ Skia library contains module 'svg', but the 'svg' module classes are not exporta
 So, we'll use reverse method: inject exportable function via this header & source files and use non-exportable 'svg' code with rest rendering code. 
 
 #### Note:
-It's recommended to use it as a static lib. Plus, for macOS & iOS users, there are compiled frameworks, attached for a latest release.
+It's recommended to use it as a static lib. Plus, for macOS & iOS users, there is compiled XCFramework, attached for a latest release.
 Also link expat library to the app, i.e.: libexpat.{a,dylib,tbd,dll}.
 
 ### Copy:
