@@ -1,7 +1,7 @@
 # R2D9SkiaSvgData
 Render SVG file to RGB(A) buffer using skia library.
 
-Skia branch: chrome/m118
+Skia branch: chrome/m119
 
 #### Info: 
 Skia library contains module 'svg', but the 'svg' module classes are not exportable.
@@ -55,14 +55,7 @@ lipo -create out/libskia_mac_x64.a out/libskia_mac_arm64.a -o out/libskia_mac.a
 
 lipo -info out/libskia_mac.a
 ```
-##### Architectures in the fat file: out/libskia_mac.a are: x86_64 arm64
-```bash
-mkdir -p out/r2d9_macos_skia_svg.framework/Headers
-
-cp modules/svg/include/r2d9_skia_svg_data.h out/r2d9_macos_skia_svg.framework/Headers/r2d9_skia_svg_data.h
-
-cp out/libskia_mac.a out/r2d9_macos_skia_svg.framework/r2d9_macos_skia_svg
-```
+##### Architectures in the fat file: out/libskia_mac.a: x86_64 arm64
 
 #### iOS
 ```bash
@@ -99,20 +92,21 @@ lipo -info out/libskia_ios_sim.a
 
 lipo -info out/libskia_ios.a
 ```
+##### Architectures in the fat file: out/libskia_ios_sim.a: x86_64 arm64 arm64e
+##### Architectures in the fat file: out/libskia_ios.a: armv7 arm64 arm64e
+```
+mkdir -p out/Headers
 
-##### Architectures in the fat file: out/libskia_ios.a are: armv7 x86_64 arm64 arm64e 
-```bash
-mkdir -p out/r2d9_ios_skia_svg_sim.framework/Headers
+cp modules/svg/include/r2d9_skia_svg_data.h out/Headers/r2d9_skia_svg_data.h
 
-mkdir -p out/r2d9_ios_skia_svg.framework/Headers
-
-cp modules/svg/include/r2d9_skia_svg_data.h out/r2d9_ios_skia_svg_sim.framework/Headers/r2d9_skia_svg_data.h
-
-cp modules/svg/include/r2d9_skia_svg_data.h out/r2d9_ios_skia_svg.framework/Headers/r2d9_skia_svg_data.h
-
-cp out/libskia_ios_sim.a out/r2d9_ios_skia_svg_sim.framework/r2d9_ios_skia_svg_sim
-
-cp out/libskia_ios.a out/r2d9_ios_skia_svg.framework/r2d9_ios_skia_svg
+xcodebuild -create-xcframework \
+    -library "out/libskia_mac.a" \
+    -headers "out/Headers" \
+    -library "out/libskia_ios_sim.a" \
+    -headers "out/Headers" \
+    -library "out/libskia_ios.a" \
+    -headers "out/Headers" \
+    -output "out/r2d9_skia_svg_data.xcframework"
 ```
 
 #### Example:
