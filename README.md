@@ -34,7 +34,7 @@ target_os
   - "mac"
   - "win"
 
-#### MacOS
+#### MacOS(Intel + Apple M.)
 ```bash
 bin/gn args out/static_mac_x64 --list --args="is_debug=false"
 
@@ -57,7 +57,7 @@ lipo -info out/libskia_mac.a
 ```
 ##### Architectures in the fat file: out/libskia_mac.a: x86_64 arm64
 
-#### iOS
+#### iOS(Simulator + Device)
 ```bash
 bin/gn gen out/static_ios_x64_sim --args='is_debug=false ios_use_simulator=true is_official_build=true paragraph_bench_enabled=false paragraph_gms_enabled=false paragraph_tests_enabled=false skia_canvaskit_enable_alias_font=false skia_canvaskit_enable_canvas_bindings=false skia_canvaskit_enable_debugger=false skia_canvaskit_enable_effects_deserialization=false skia_canvaskit_enable_embedded_font=false skia_canvaskit_enable_font=false skia_canvaskit_enable_matrix_helper=false skia_canvaskit_enable_paragraph=false skia_canvaskit_enable_pathops=false skia_canvaskit_enable_rt_shader=false skia_canvaskit_enable_skottie=false skia_canvaskit_enable_skp_serialization=true skia_canvaskit_enable_sksl_trace=false skia_enable_discrete_gpu=false skia_enable_gpu=false skia_enable_pdf=false skia_enable_skottie=false skia_enable_skparagraph=false skia_enable_sktext=false skia_enable_svg=true skia_pdf_subset_harfbuzz=false skia_use_dng_sdk=false skia_use_fonthost_mac=false skia_use_gl=false skia_use_harfbuzz=false skia_use_icu=false skia_use_libjpeg_turbo_decode=false skia_use_libjpeg_turbo_encode=false skia_use_no_jpeg_encode=true skia_use_no_png_encode=true skia_use_libpng_decode=false skia_use_libpng_encode=false skia_use_libwebp_decode=false skia_use_no_webp_encode=true skia_use_libwebp_encode=false skia_use_zlib=false text_tests_enabled=false skia_compile_sksl_tests=false paragraph_tests_enabled=false text_gms_enabled=false skia_use_system_expat=true target_os="ios" target_cpu="x64" xcode_sysroot="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk"'
 
@@ -94,7 +94,26 @@ lipo -info out/libskia_ios.a
 ```
 ##### Architectures in the fat file: out/libskia_ios_sim.a: x86_64 arm64 arm64e
 ##### Architectures in the fat file: out/libskia_ios.a: armv7 arm64 arm64e
+
+#### MacOS(Intel + Apple M.) and iOS(Simulator + Device) Frameworks
+#### MacOS(Intel + Apple M.) Framework
+```bash
+mkdir -p out/r2d9_macos_skia_svg.framework/Headers
+
+cp modules/svg/include/r2d9_skia_svg_data.h out/r2d9_macos_skia_svg.framework/Headers/r2d9_skia_svg_data.h
+
+cp out/libskia_mac.a out/r2d9_macos_skia_svg.framework/r2d9_macos_skia_svg
 ```
+#### isOS(Simulator + Device) Framework
+```bash
+mkdir -p out/r2d9_ios_skia_svg.framework/Headers
+
+cp modules/svg/include/r2d9_skia_svg_data.h out/r2d9_ios_skia_svg.framework/Headers/r2d9_skia_svg_data.h
+
+cp out/libskia_ios.a out/r2d9_ios_skia_svg.framework/r2d9_ios_skia_svg
+```
+#### Universal, macOS(Intel + Apple M.) + iOS(Simulator + Device) XCFramework
+```bash
 mkdir -p out/Headers
 
 cp modules/svg/include/r2d9_skia_svg_data.h out/Headers/r2d9_skia_svg_data.h
@@ -106,7 +125,7 @@ xcodebuild -create-xcframework \
     -headers "out/Headers" \
     -library "out/libskia_ios.a" \
     -headers "out/Headers" \
-    -output "out/r2d9_skia_svg_data.xcframework"
+    -output "out/r2d9_skia_svg.xcframework"
 ```
 
 #### Example:
