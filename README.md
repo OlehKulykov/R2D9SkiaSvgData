@@ -104,7 +104,7 @@ cp modules/svg/include/r2d9_skia_svg_data.h out/r2d9_macos_skia_svg.framework/He
 
 cp out/libskia_mac.a out/r2d9_macos_skia_svg.framework/r2d9_macos_skia_svg
 ```
-#### isOS(Simulator + Device) Framework
+#### isOS(Device) Framework
 ```bash
 mkdir -p out/r2d9_ios_skia_svg.framework/Headers
 
