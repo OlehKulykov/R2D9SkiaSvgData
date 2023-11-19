@@ -1,7 +1,7 @@
 # R2D9SkiaSvgData
 Render SVG file to RGB(A) buffer using skia library.
 
-Skia branch: chrome/m119
+Skia branch: chrome/m120
 
 #### Info: 
 Skia library contains module 'svg', but the 'svg' module classes are not exportable.
@@ -130,7 +130,7 @@ xcodebuild -create-xcframework \
 
 #### Example:
 ```c
-#include "r2d9_skia_svg_data.h"
+#include "r2d9_skia_svg_data.h" // NOTE: Replace me.
 #include <png.h>
 
 static void r2d9_png_write_fn(png_structp png_ptr, png_bytep data, png_size_t len) {
@@ -248,4 +248,3 @@ void test2(void) {
     }
 }
 ```
-
