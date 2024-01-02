@@ -4,18 +4,18 @@ Render SVG file to RGB(A) buffer using skia library.
 Skia branch: chrome/m120
 
 #### Info: 
-Skia library contains module 'svg', but the 'svg' module classes are not exportable.
+Skia library contains module 'svg', but 'svg' module classes are not exportable.
 So, we'll use reverse method: inject exportable C function via this header & source files and use non-exportable 'svg' code with rest rendering functionality. 
 
 #### Note:
 It's recommended to use it as a static lib. Plus, for macOS & iOS users, there are compiled universal XCFramework and macOS/iOS Framewoks, attached for a latest release.
 Also link expat library to the app, i.e.: libexpat.{a,dylib,tbd,dll}.
 
-### Copy:
+### Before build, inject/copy:
 - skia/modules/svg/include/r2d9_skia_svg_data.h
 - skia/modules/svg/src/r2d9_skia_svg_data.cpp
 
-### Add:
+### Add injected h/c to the build script:
 - skia/modules/svg/svg.gni
   - "$_modules/svg/include/r2d9_skia_svg_data.h",
   - "$_modules/svg/src/r2d9_skia_svg_data.cpp",
