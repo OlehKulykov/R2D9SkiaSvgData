@@ -115,7 +115,7 @@ int R2D9SkiaSvgDataProcess(struct R2D9SkiaSvgData * data) {
     data->pixelsWidth = pixmap.width();
     data->pixelsHeight = pixmap.height();
     
-    if (pixmap.isOpaque() || (data->colorType == R2D9SkiaSvgDataColorType_RGB_888)) {
+    if ((data->colorType == R2D9SkiaSvgDataColorType_RGB_888) || pixmap.isOpaque()) {
         data->colorType = R2D9SkiaSvgDataColorType_RGB_888;
         const size_t pixelsCount = data->pixelsWidth * data->pixelsHeight;
         const size_t byteSize = pixelsCount * 3; // ...RGB_888
