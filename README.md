@@ -1,7 +1,7 @@
 # R2D9SkiaSvgData
 Render SVG file to RGB(A) buffer using skia library.
 
-Skia branch: ```chrome/m126```
+Skia branch: ```chrome/m127```
 
 #### Info: 
 Skia library contains module 'svg', but 'svg' module classes are not exportable.
@@ -104,7 +104,7 @@ cp modules/svg/include/r2d9_skia_svg_data.h out/r2d9_macos_skia_svg.framework/He
 
 cp out/libskia_mac.a out/r2d9_macos_skia_svg.framework/r2d9_macos_skia_svg
 ```
-#### isOS(Device) Framework
+#### iOS(Device) Framework
 ```bash
 mkdir -p out/r2d9_ios_skia_svg.framework/Headers
 
@@ -248,4 +248,3 @@ void test2(void) {
     }
 }
 ```
-
