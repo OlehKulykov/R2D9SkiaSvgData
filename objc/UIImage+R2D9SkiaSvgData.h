@@ -18,12 +18,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// -----------------------------------------------------------------------------
+// Usage with Objective-C or Swift.
+//   1. Add this header{.h} and source{.m} to the project.
+//   2. Get latest framework from GitHub's releases and add/link to the project.
+//     2.1. Optionaly link with libexpat{.tbd} and libc++{.tbd} in Build Phases.
+//   3. Use
+// -----------------------------------------------------------------------------
 
 #import <UIKit/UIKit.h>
 
-/// alphaInfo:
-/// - kCGImageAlphaNone - RGB 888
-/// - kCGImageAlphaLast - RGBA 8888
+/// Parameters:
+///   svgData: Input SVG file data.
+///   alphaInfo: Type of alpha chanel of result image.
+///     - kCGImageAlphaNone - RGB 888
+///     - kCGImageAlphaLast - RGBA 8888
+///   originalSize: Optional out size of original SVG image(if needed).
 
 @interface UIImage(R2D9SkiaSvgData)
 
