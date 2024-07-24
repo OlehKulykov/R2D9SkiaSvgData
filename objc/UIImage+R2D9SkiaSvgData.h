@@ -23,7 +23,7 @@
 //   1. Add this header{.h} and source{.m} to the project.
 //   2. Get latest framework from GitHub's releases and add/link to the project.
 //     2.1. Optionaly link with libexpat{.tbd} and libc++{.tbd} in Build Phases.
-//   3. Use
+//   3. Use.
 // -----------------------------------------------------------------------------
 
 #import <UIKit/UIKit.h>

@@ -19,6 +19,7 @@
 // SOFTWARE.
 
 #include <cstddef>
+#include <memory>
 
 #include "include/core/SkStream.h"
 #include "include/core/SkSurface.h"

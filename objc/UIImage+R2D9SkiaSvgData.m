@@ -21,6 +21,10 @@
 
 #import "UIImage+R2D9SkiaSvgData.h"
 
+#include <limits.h>
+#include <stdint.h>
+#include <float.h>
+
 #if !defined(__has_include)
 #  define __has_include 0
 #endif
@@ -71,8 +75,14 @@ static NSInteger R2D9SkiaSvgDataBaseInit(struct R2D9SkiaSvgData * data,
             return 1;
     }
     
-    data->svgData = (void *)svgData.bytes;
-    data->svgDataSize = (unsigned int)svgData.length;
+    data->svgData = svgData.bytes;
+    const NSUInteger svgDataSize = svgData.length;
+#if defined(UINT_MAX)
+    if (svgDataSize > UINT_MAX) {
+        return 2;
+    }
+#endif
+    data->svgDataSize = (unsigned int)svgDataSize;
     data->colorSpace = R2D9SkiaSvgDataColorSpace_sRGB;
     data->pixelsDataAlloc = &R2D9SkiaSvgDataAllocDataCb;
     
@@ -169,6 +179,16 @@ static UIImage * R2D9SkiaSvgDataCreateImage(struct R2D9SkiaSvgData * data) {
     if (!svgData) {
         return nil;
     }
+#if defined(FLT_MIN)
+    if ((newSize.width < FLT_MIN) || (newSize.height < FLT_MIN)) {
+        return nil;
+    }
+#endif
+#if defined(FLT_MAX)
+    if ((newSize.width > FLT_MAX) || (newSize.height > FLT_MAX)) {
+        return nil;
+    }
+#endif
     
     struct R2D9SkiaSvgData data = { 0 };
     
@@ -197,6 +217,16 @@ static UIImage * R2D9SkiaSvgDataCreateImage(struct R2D9SkiaSvgData * data) {
     if (!svgData) {
         return nil;
     }
+#if defined(FLT_MIN)
+    if ((scale.width < FLT_MIN) || (scale.height < FLT_MIN)) {
+        return nil;
+    }
+#endif
+#if defined(FLT_MAX)
+    if ((scale.width > FLT_MAX) || (scale.height > FLT_MAX)) {
+        return nil;
+    }
+#endif
     
     struct R2D9SkiaSvgData data = { 0 };
     

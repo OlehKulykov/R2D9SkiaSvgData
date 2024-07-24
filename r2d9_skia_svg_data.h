@@ -18,7 +18,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-// Skia branch: chrome/m127
+// Skia branch: chrome/m128
 
 #ifndef __R2D9_SKIA_SVG_DATA_H__
 #define __R2D9_SKIA_SVG_DATA_H__ 1
@@ -65,7 +65,7 @@
 
 struct R2D9SkiaSvgData {
     void * context;                 // in, optional, any user defined, 'pixelsDataAlloc(..., context)'
-    void * svgData;                 // in, required, SVG file
+    const void * svgData;           // in, required, SVG file
     void * pixelsData;              // out
     void * (*pixelsDataAlloc)(unsigned int size, void * context); // in, optional, ::malloc(...)/::free(...) instead
     unsigned int svgDataSize;       // in, required, size of 'svgData' in bytes
