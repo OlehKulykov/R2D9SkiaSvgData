@@ -18,7 +18,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-// Skia branch: chrome/m128
+// Skia branch: chrome/m129
 
 #ifndef __R2D9_SKIA_SVG_DATA_H__
 #define __R2D9_SKIA_SVG_DATA_H__ 1

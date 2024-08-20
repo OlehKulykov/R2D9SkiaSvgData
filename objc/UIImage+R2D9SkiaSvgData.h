@@ -33,7 +33,7 @@
 ///   alphaInfo: Type of alpha chanel of result image.
 ///     - kCGImageAlphaNone - RGB 888
 ///     - kCGImageAlphaLast - RGBA 8888
-///   originalSize: Optional out size of original SVG image(if needed).
+///   originalSize: Optional original out SVG image size.
 
 @interface UIImage(R2D9SkiaSvgData)
 
